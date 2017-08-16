@@ -1,4 +1,27 @@
- " disable vi compatibility (emulation of old bugs)
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle
+" " required! 
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+map <F2> :NERDTreeToggle<CR>
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/a.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tomasr/molokai'
+Plugin 'easymotion/vim-easymotion'
+
+call vundle#end()
+filetype indent plugin on
+filetype plugin on
+set laststatus=2
+
+" disable vi compatibility (emulation of old bugs)
  set nocompatible
  " use indentation of previous line
  set autoindent
@@ -15,6 +38,7 @@
  syntax on
  " turn line numbers on
  set number
+ set relativenumber
  " highlight matching braces
  set showmatch
  " intelligent comments
@@ -22,7 +46,6 @@
 
 
 set nocp
-
 
  " Install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
  " This offers intelligent C++ completion when typing ‘.’ ‘->’ or <C-o>
@@ -45,34 +68,12 @@ set vb t_vb=".
 set mouse=a
 set hlsearch
 syntax enable
-set background=dark
-
-
-filetype indent on
-filetype plugin on
-
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-map <F2> :NERDTreeToggle<CR>
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-scripts/a.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tomasr/molokai'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+"set background=light
 colorscheme molokai
-"let g:molokai_original = 1
-"let g:rehash256 = 1
+hi Comment      ctermfg=184
 
-set laststatus=2
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
 "let g:clang_format_path =/usr/bin/clang-format-3.6 
-"map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format.py<CR>
-"imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format.py<CR>
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format.py<CR>
+imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format.py<CR>
